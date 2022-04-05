@@ -1,4 +1,4 @@
-# Authorization Governance
+# Authentication Governance
 
 An authentication service is a mechanism, analogous to the use of passwords on time-sharing systems, for the secure authentication of the identity of network clients by servers and vice versa.
 
