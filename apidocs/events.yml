@@ -1,0 +1,59 @@
+asyncapi: "2.2.0"
+info:
+  title: Authentication Governance Events
+  version: "1.0.0"
+  description: |
+    An authentication service is a mechanism, analogous to the use of passwords on time-sharing systems, for the secure authentication of the identity of network clients by servers and vice versa.
+servers:
+  eventgrid:
+    url: https://dev-event-grid-test.westus2-1.eventgrid.azure.net/api/events
+    protocol: http
+channels:
+  AuthenticationStarted:
+    publish:
+      summary: Inform about the user choosing to begin an authentication operation for a specific claimant.
+      message:
+        name: AuthenticationStarted
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Id of the message - should be unique for each message.
+            topic:
+              type: string
+              description: "Name of the topic (Authentication)"
+            subject:
+              type: string
+              description: Reference to specific claimant info
+            eventTime:
+              type: string
+              format: date-time
+              description: Date and time when the message was sent.
+            dataVersion:
+              type: string
+              description: Semantic version of Authentication Governance API
+  AuthenticationCompleted:
+    publish:
+      summary: Inform about the authentication operation being completed for a specific claimant.
+      message:
+        name: AuthenticationCompleted
+        payload:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Id of the message - should be unique for each message.
+            topic:
+              type: string
+              description: "Name of the topic (Authentication)"
+            subject:
+              type: string
+              description: Reference to specific claimant info
+            eventTime:
+              type: string
+              format: date-time
+              description: Date and time when the message was sent.
+            dataVersion:
+              type: string
+              description: Semantic version of Authentication Governance API
