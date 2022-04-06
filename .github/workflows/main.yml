@@ -31,14 +31,14 @@ jobs:
       uses: Legion2/swagger-ui-action@v1
       with:
         output: gen-html/api
-        spec-file: apidocs/openapi.json
+        spec-file: apidocs/openapi.yml
 
     - name: Generate C# Client
       uses: openapi-generators/openapitools-generator-action@v1
       with:
         generator: csharp-netcore
         # config-file: csharp-netcore-generator-config.yml
-        openapi-file: apidocs/openapi.json
+        openapi-file: apidocs/openapi.yml
 
     - name: Zip SDK
       run: zip -r gen-html/csharp-netcore-client.zip csharp-netcore-client
